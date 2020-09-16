@@ -9,6 +9,9 @@ module.exports = {
   addMessage,
   findLessonMessages,
   removeMessage,
+  addUser,
+  findAllUsers,
+  findUserByUsername,
 };
 async function add(lesson) {
   return await db('lessons').insert(lesson, ['id', 'name']);
@@ -51,4 +54,15 @@ function findLessonMessages(lesson_id) {
 }
 function removeMessage(id) {
   return db('messages').where({ id }).del();
+}
+
+async function addUser(user) {
+  return await db('users').insert(user, ['id', 'username']);
+}
+
+async function findAllUsers() {
+  return await db('users');
+}
+function findUserByUsername(username) {
+  return db('users').where({ username }).first();
 }

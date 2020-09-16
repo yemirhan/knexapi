@@ -1,6 +1,7 @@
 const express = require('express');
 const lessonsRouter = require('../Routes/lessons-routes');
 const messagesRouter = require('../Routes/messages-routes');
+const usersRouter = require('../Routes/user-routes');
 const lessons = require('../models/dbHelpers');
 const app = express();
 
@@ -11,4 +12,5 @@ app.get('/', (req, res) => {
 });
 app.use('/api/lessons', lessonsRouter);
 app.use('/api/messages', messagesRouter);
+app.use('/api/users', usersRouter);
 module.exports = app;
